@@ -4,10 +4,17 @@ const app = express();
 
 const MenuItem = require("./routes/menuRoutes");
 const Order = require("./routes/orderRoutes");
-
-app.use(cors());
-app.use(express.json());
 require("dotenv").config();
+
+const corsOptions = {
+    origin: process.env.FRONT_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]
+};
+
+app.use(cors(corsOptions));
+
+app.use(express.json());
 const db_connection = require("./db");
 db_connection();
 

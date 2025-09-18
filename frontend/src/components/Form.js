@@ -10,11 +10,11 @@ function Form() {
     const [address, setAddress] = useState("");
     const [contact, setContact] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    
 
     const handleSubmit = async e => {
         e.preventDefault();
-        setIsLoading(true); 
-
+        setIsLoading(true);
 
         const orderData = {
             name,
@@ -27,7 +27,7 @@ function Form() {
         };
 
         try {
-            const res = await fetch("http://localhost:4000/order", {
+            const res = await fetch(`${process.env.REACT_APP_BACK_URL}/order`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(orderData)
@@ -35,13 +35,12 @@ function Form() {
             const data = await res.json();
             if (!res.ok) {
                 toast.error(data.error.message);
-                setIsLoading(false); 
+                setIsLoading(false);
                 return;
             }
-            localStorage.setItem("order", JSON.stringify(data)); 
+            localStorage.setItem("order", JSON.stringify(data));
             navigate("/success");
             toast.success("Order placed successfully!");
-
 
             setName("");
             setAddress("");
@@ -49,7 +48,7 @@ function Form() {
         } catch (err) {
             console.error(err);
             toast.error("Something went wrong. Try again.");
-            setIsLoading(false);  
+            setIsLoading(false);
         }
     };
 
@@ -118,14 +117,14 @@ function Form() {
 
                 <button
                     type="submit"
-                    className={`w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg ${isLoading ? 'cursor-not-allowed opacity-50' : 'hover:bg-indigo-700'}`}
-                    disabled={isLoading}  
+                    className={`w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg ${
+                        isLoading
+                            ? "cursor-not-allowed opacity-50"
+                            : "hover:bg-indigo-700"
+                    }`}
+                    disabled={isLoading}
                 >
-                    {isLoading ? (
-                        <span>Loading...</span> 
-                    ) : (
-                        "Place Order"
-                    )}
+                    {isLoading ? <span>Loading...</span> : "Place Order"}
                 </button>
             </form>
         </div>

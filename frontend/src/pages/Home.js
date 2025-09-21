@@ -13,7 +13,7 @@ setSearchItem(inputData);
 };
 const getData = async () => {
 try {
-const response = await fetch(`${process.env.REACT_APP_BACK_URL}/menu`);
+const response = await fetch("https://mern-food-backend-kwdx.onrender.com/menu");
 if (!response.ok) {
 throw new Error("Network response was not ok");
 }

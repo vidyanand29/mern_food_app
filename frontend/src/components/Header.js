@@ -6,7 +6,7 @@ function Header() {
     return (
         <nav className="flex justify-between items-center border-b-2 py-2 px-4 sm:px-6 md:px-8 sticky top-0 bg-white">
 
-            <h1 className="font-bold text-lg text-red-600">GoodFood</h1>
+            <h1 className="font-bold text-lg text-green-600">Meal</h1>
 
 
             <div className="space-x-4 sm:space-x-6 flex flex-wrap justify-end sm:justify-start mt-2 sm:mt-0">

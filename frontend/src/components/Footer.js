@@ -5,8 +5,8 @@ const Footer = () => {
         <footer className="text-sm mt-10 border-t-2 py-6 px-4 sm:px-8">
             <div className="flex flex-col sm:flex-row justify-between items-center">
                 <div className="mb-4 sm:mb-0">
-                    <span className="font-bold text-lg text-red-600">
-                        GoodFood
+                    <span className="font-bold text-lg text-green-600">
+                        Meal
                     </span>
                 </div>
                 
@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
                 
                 <div className="mt-4 sm:mt-0 text-xs text-gray-500 text-center sm:text-right">
-                    © {new Date().getFullYear()} GoodFood. All rights reserved.
+                    © {new Date().getFullYear()} Meal. All rights reserved.
                 </div>
             </div>
         </footer>
